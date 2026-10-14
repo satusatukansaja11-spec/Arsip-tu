@@ -1,0 +1,48 @@
+:root {
+  --brand: #0d47a1;
+  --brand-dark: #08306b;
+  --brand-soft: #e8f0fe;
+}
+body { background: #f4f7fb; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+
+.app-shell { display: flex; min-height: 100vh; }
+.sidebar {
+  width: 250px; background: var(--brand-dark); color: #fff; flex-shrink: 0;
+  position: sticky; top: 0; height: 100vh; overflow-y: auto;
+}
+.sidebar-brand { display: flex; gap: .75rem; align-items: center; padding: 1.1rem 1rem; border-bottom: 1px solid rgba(255,255,255,.12); }
+.sidebar-brand i { font-size: 1.8rem; }
+.sidebar-brand small { opacity: .75; }
+.sidebar .nav-link { color: rgba(255,255,255,.85); padding: .65rem 1rem; display: flex; gap: .6rem; align-items: center; }
+.sidebar .nav-link:hover { background: rgba(255,255,255,.08); color: #fff; }
+.sidebar .nav-link.active { background: var(--brand); color: #fff; font-weight: 600; }
+.sidebar .nav-link.disabled { opacity: .45; cursor: not-allowed; }
+
+.main-area { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.topbar { display: flex; align-items: center; gap: .5rem; padding: .6rem 1.25rem; background: #fff; border-bottom: 1px solid #e3e8ef; }
+.content { padding: 1.5rem; flex: 1; }
+.footer-note { text-align: center; color: #6c757d; font-size: .85rem; padding: .75rem; }
+
+.btn-primary { --bs-btn-bg: var(--brand); --bs-btn-border-color: var(--brand); --bs-btn-hover-bg: var(--brand-dark); --bs-btn-hover-border-color: var(--brand-dark); }
+.text-primary { color: var(--brand) !important; }
+
+.auth-body { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--brand-soft), #fff); padding: 1rem; }
+.auth-card { width: 100%; max-width: 400px; }
+.auth-icon { font-size: 2.5rem; color: var(--brand); }
+
+.stat-card .stat-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
+.stat-card .stat-value { font-size: 1.6rem; font-weight: 700; line-height: 1.1; }
+.chart-box { position: relative; height: 280px; }
+.empty-state { text-align: center; color: #8a94a6; padding: 2rem 1rem; }
+.empty-state i { font-size: 2.2rem; display: block; margin-bottom: .4rem; }
+.table thead th a { color: inherit; text-decoration: none; white-space: nowrap; }
+.tab-pane dl dt { color: #6c757d; font-weight: 500; }
+
+@media (max-width: 991.98px) {
+  .sidebar { position: fixed; z-index: 1040; left: -260px; transition: left .2s; }
+  .sidebar.open { left: 0; }
+}
+@media print {
+  .sidebar, .topbar, .footer-note, .no-print { display: none !important; }
+  .content { padding: 0; }
+}
